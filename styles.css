@@ -1,0 +1,13 @@
+.addFormClient{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+}
+.addFormClient input{
+    width: 400px;
+    margin: .8rem 0;
+}
+/* Windows Phone Viewport Fix */
+@-ms-viewport { 
+    width: device-width; 
+}
