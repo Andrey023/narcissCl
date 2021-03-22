@@ -1,6 +1,5 @@
 <?php
     include("../db.php");
-    $link = mysqli_connect($host,$dbUser,$dbPass,$dbName) or die("Ошибка" + mysqli_error($link));
     if($link){
         echo "Connect!";
     }
