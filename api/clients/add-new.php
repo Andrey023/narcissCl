@@ -1,13 +1,14 @@
 <?php
-    include("../db.php");
-    if($link){
-        echo "Connect!";
-    }
-    $name = $_GET['client-n'];
-    $insertNewClient = "INSERT INTO Clients (ClientID, FirstName) VALUES (1,\"$name\")";
-    echo gettype($name);
-    $result = mysqli_query($link, $insertNewClient) or die("Ошибка" + mysqli_error($link));
-    if($result){
+    include_once dirname(__FILE__, 2) . '\db.php';
+    include_once dirname(__FILE__, 3). '\header.php';
+    $name = $_POST['client-n'];
+    $phone = $_POST['phone'];
+    $insertNewClient = "INSERT INTO clients(`name`, `phone`) VALUES (\"$name\",\"$phone\")";
+    $result = mysqli_query($connectDB, $insertNewClient) or die("Ошибка" + mysqli_error($connectDB));
+    if($connectDB){
         echo "Добавлено!";
+    }
+    else{
+        echo "Запись не успешна!";
     }
 ?>
