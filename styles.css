@@ -52,11 +52,13 @@
 }
 .brd_bottom{
     border-bottom: 1px solid #000;
+    padding: 0.7em;
+    font-size: 1.2em;
 }
 .center{
     text-align: center;
 }
 /* Windows Phone Viewport Fix */
-@-ms-viewport { 
-    width: device-width; 
+@-ms-viewport {
+    width: device-width;
 }

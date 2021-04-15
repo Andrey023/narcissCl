@@ -18,22 +18,26 @@
                 <th class="brd_bottom">N</th>
                 <th class="brd_bottom">Ф.И.О</th>
                 <th class="brd_bottom">Телефон</th>
+                <th class="brd_bottom">Email</th>
+                <!-- <th class="brd_bottom">Редактировать</th> -->
             </tr>
             <?php
                 for ($i=0; $i < $listRows; $i++) {
                     while ($rows = mysqli_fetch_row($getClients)) {
                         echo "<tr class=\"center\">";
-                        for ($j=0; $j < 1; $j++) { 
+                        for ($j=0; $j < 1; $j++) {
                             echo "<td class=\"brd_bottom\">".$rows[0]."</td>";
                             echo "<td class=\"brd_bottom\">".$rows[1]."</td>";
-                            echo "<td class=\"brd_bottom\"><form action=\"editCl.php\" method=\"get\">
-                                    <input type=\"submit\" value=\"Редактировать!\">
-                                </form></td>";
+                            echo "<td class=\"brd_bottom\">".$rows[2]."</td>";
+                            echo "<td class=\"brd_bottom\">".$rows[3]."</td>";
+                            // echo "<td class=\"brd_bottom\"><form action=\"editCl.php\" method=\"get\">
+                            //         <input type=\"submit\" value=\"Редактировать!\">
+                            //     </form></td>";
                         }
                         echo "</tr>";
                     }
                 }
-            ?>               
+            ?>
         </tbody>
     </table>
 </div>
@@ -41,6 +45,7 @@
 <form action="api/clients/add-new.php" method = "POST" class="addFormClient">
     <input type="text" name="client-n" placeholder="Ф.И.О.">
     <input type="tel" name="phone" placeholder="+7(  ) ___-__-__" pattern="+7[0-9]{3}-[0-9]{3}-[0-9]{2}-[0-9]{2}">
+    <input type="mail" name="mail" placeholder="Электронная почта клиента">
     <input type="submit" value="Сохранить">
 </form>
 <script>
