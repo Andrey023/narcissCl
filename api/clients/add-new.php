@@ -1,6 +1,6 @@
 <?php
-    include_once dirname(__FILE__, 2) . '\db.php';
-    include_once dirname(__FILE__, 3). '\header.php';
+    include_once dirname(__FILE__, 2) . '/db.php';
+    include_once dirname(__FILE__, 3). '/header.php';
     $name = $_POST['client-n'];
     $phone = $_POST['phone'];
     $mail = $POST['mail'];

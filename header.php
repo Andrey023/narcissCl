@@ -13,8 +13,9 @@
 </head>
 <body>
     <div class="top-menu">
-        <a href="clients.php" class="item-menu">Клиенты</a>
-        <a href="tracked.php" class="item-menu">Путевой</a>
-        <a href="loaded-list.php" class="item-menu">Загрузочный</a>
-        <a href="count.php" class="item-menu">Расчёт</a>
+        <a href="<?php __DIR__ ?>/clients.php" class="item-menu">Клиенты</a>
+        <a href="<?php __DIR__ ?>/tracked.php" class="item-menu">Путевой</a>
+        <a href="<?php __DIR__ ?>/loaded-list.php" class="item-menu">Загрузочный</a>
+        <a href="<?php __DIR__ ?>/count.php" class="item-menu">Расчёт</a>
+        <a href="<?php __DIR__ ?>/api/clients/settings.php" class="item-menu"><img src="/images/settings.png" alt=""></a>
     </div>

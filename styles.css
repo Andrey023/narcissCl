@@ -27,11 +27,12 @@
     flex-direction: column;
     justify-content: center;
     border: 1px solid;
-    width: 440px;
-    margin: 0 auto;
+    width: 85%;
+    margin: 1em auto;
+    padding: 1%;
 }
-.addFormClient input{
-    width: 400px;
+.addFormClient input, .addFormClient select{
+    width: 88%;
     margin: .8rem auto;
     display: block;
 }
