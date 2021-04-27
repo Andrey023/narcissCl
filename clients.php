@@ -23,7 +23,7 @@
                 <th class="brd_bottom">Email</th>
                 <th class="brd_bottom">Тариф Роза</th>
                 <th class="brd_bottom">Тариф Хризантема</th>
-                <th class="brd_bottom">Тариф СС</th>
+                <th class="brd_bottom">Тариф СС(телега)</th>
                 <!-- <th class="brd_bottom">Редактировать</th> -->
             </tr>
             <?php
