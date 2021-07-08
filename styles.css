@@ -30,11 +30,28 @@
     width: 85%;
     margin: 1em auto;
     padding: 1%;
+    position: relative;
 }
 .addFormClient input, .addFormClient select{
     width: 88%;
     margin: .8rem auto;
     display: block;
+}
+.addFormClient span{
+    position: absolute;
+    left: auto;
+    right: -1%;
+    border: 1px solid #000;
+    top: -16px;
+    border-radius: 50%;
+    width: 30px;
+    text-align: center;
+    font-size: 1.5em;
+    cursor: pointer;
+    background-color: #fff;
+}
+.addFormClient span:hover{
+    box-shadow: 0px 0px 12px #000;
 }
 .clients-narciss{
     display: flex;
@@ -58,6 +75,20 @@
 }
 .center{
     text-align: center;
+}
+.btn-group{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.btn{
+    display: flex;
+    padding: 1%;
+    margin: 1% 2%;
+    border: 1px solid #000;
+    border-radius: 3%;
+    background-color: #ffebcd;
+    cursor: pointer;
 }
 /* Windows Phone Viewport Fix */
 @-ms-viewport {
