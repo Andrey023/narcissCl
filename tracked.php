@@ -14,19 +14,40 @@
     // foreach($selectedClient as $client){
     // 	getSelectedClients($client);
     // }
+    $h3List =['Имя Клиента', 'Маркировка', 'Город доставки'];
 ?>
 <div class="trackedList">
 	<div>
-		<?php 
-			foreach($selectedClient as $clients){
-                $selectedClientList = 'SELECT clients.name, clients.mark, city.cityID FROM clients INNER JOIN city ON clients.cityClient = city.cityID WHERE clients.personID = '.$clients.'';
-                // $selectedClientList = 'SELECT name, mark FROM clients WHERE personID = '.$clients.'';
-                $getListCl = mysqli_query($connectDB, $selectedClientList);
-                $arrClients = mysqli_fetch_assoc($getListCl);
-                echo $arrClients['name'].'<br />';
-                echo $arrClients['mark'].'<br />';
-                var_dump($arrClients);
+        <h3>Имя Клиента</h3>
+        <?php
+    	foreach($selectedClient as $clients){
+            $selectedClientList = 'SELECT clients.name, clients.mark, city.cityName FROM clients INNER JOIN city ON clients.cityClient = city.cityID WHERE clients.personID = '.$clients.'';
+            $getListCl = mysqli_query($connectDB, $selectedClientList);
+            $arrClients = mysqli_fetch_row($getListCl); 
+                    echo '<span>'.$arrClients[0].'</span>';
             }
-		?>
+            ?>
 	</div>
-</div>
+    <div>
+        <h3>Маркировка</h3>
+        <?php
+        foreach($selectedClient as $clients){
+            $selectedClientList = 'SELECT clients.name, clients.mark, city.cityName FROM clients INNER JOIN city ON clients.cityClient = city.cityID WHERE clients.personID = '.$clients.'';
+            $getListCl = mysqli_query($connectDB, $selectedClientList);
+            $arrClients = mysqli_fetch_row($getListCl); 
+                    echo '<span>'.$arrClients[1].'</span>';
+            }
+            ?>
+    </div>
+    <div>
+        <h3>Город доставки</h3>
+        <?php
+        foreach($selectedClient as $clients){
+            $selectedClientList = 'SELECT clients.name, clients.mark, city.cityName FROM clients INNER JOIN city ON clients.cityClient = city.cityID WHERE clients.personID = '.$clients.'';
+            $getListCl = mysqli_query($connectDB, $selectedClientList);
+            $arrClients = mysqli_fetch_row($getListCl); 
+                    echo '<span>'.$arrClients[2].'</span>';
+            }
+            ?>
+    </div>
+</div>  

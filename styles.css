@@ -90,6 +90,41 @@
     background-color: #ffebcd;
     cursor: pointer;
 }
+.trackedList{
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: space-around;
+    align-items: center;
+}
+.trackedList span{
+    display: block;
+}
+.trackedList>div{
+    min-width: 150px;
+}
+.trackedList>div:nth-child(2){
+    border-left: 1px solid;
+    border-right: 1px solid;
+}
+.settingsForm{
+    display: flex;
+    flex-direction: column;
+    padding: 23px 26px;
+}
+.settingsForm>div{
+    margin-bottom: 1%;
+}
+.settingsForm label{
+    font-size: 2em;
+    margin-right: 3%;
+}
+.settingsForm input{
+    width: 27%;
+    height: 3.2em;
+    padding: 3px 25px;
+    font-size: 1em;
+}
 /* Windows Phone Viewport Fix */
 @-ms-viewport {
     width: device-width;

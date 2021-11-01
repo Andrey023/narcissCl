@@ -2,14 +2,12 @@
     include_once(dirname(__FILE__, 1) . '/api/db.php');
     include_once(dirname(__FILE__, 1) . '/header.php');
 
-    $listCl = "SELECT clients.personID, clients.name, clients.mark, clients.phone, clients.mail, clients.tarifR, clients.tarifChriz, clients.tarifT, city.name FROM clients, city WHERE clients.cityClient = city.cityID";
+    $listCl = "SELECT clients.personID, clients.name, clients.mark, clients.phone, clients.mail, clients.tarifR, clients.tarifChriz, clients.tarifT, regions.nameRegion, city.cityName FROM clients INNER JOIN city ON clients.cityClient = city.cityID INNER JOIN regions ON clients.region = regions.regionId";
     $getClients = mysqli_query($connectDB,$listCl);
 
     if (mysqli_num_rows($getClients)==0) {
         echo "Клиентов нет!";
     }
-
-    $listRows = mysqli_num_rows($getClients);
 ?>
 <form action="/tracked.php" name="trackedList" method="POST">
     <div class="clients-narciss">
@@ -19,6 +17,7 @@
                     <th class="brd_bottom">N</th>
                     <th class="brd_bottom" width="245">Ф.И.О</th>
                     <th class="brd_bottom">Маркировка</th>
+                    <th class="brd_bottom">Регион</th>
                     <th class="brd_bottom">Город</th>
                     <th class="brd_bottom">Телефон</th>
                     <th class="brd_bottom">Email</th>
@@ -29,21 +28,22 @@
                     <!-- <th class="brd_bottom">Редактировать</th> -->
                 </tr>
                 <?php
-                    for ($i=0; $i < $listRows; $i++) {
-                        while ($rows = mysqli_fetch_row($getClients)) {
+                    for ($i=0; $i < mysqli_num_rows($getClients); $i++) {
+                        while ($rows = mysqli_fetch_assoc($getClients)) {
                             echo "<tr class=\"center\">";
                                 for ($j=0; $j < 1; $j++) {
-                                    echo "<td class=\"brd_bottom\">".$rows[0]."</td>";
-                                    echo "<td class=\"brd_bottom\">".$rows[1]."</td>";
-                                    echo "<td class=\"brd_bottom bold\">".$rows[2]."</td>";
-                                    echo "<td class=\"brd_bottom bold\"> г. ".$rows[8]."</td>";
-                                    echo "<td class=\"brd_bottom\">".$rows[3]."</td>";
-                                    echo "<td class=\"brd_bottom\">".$rows[4]."</td>";
-                                    echo "<td class=\"brd_bottom\">".$rows[5]."</td>";
-                                    echo "<td class=\"brd_bottom\">".$rows[6]."</td>";
-                                    echo "<td class=\"brd_bottom\">".$rows[7]."</td>";
+                                    echo "<td class=\"brd_bottom\">".$rows["personID"]."</td>";
+                                    echo "<td class=\"brd_bottom\">".$rows["name"]."</td>";
+                                    echo "<td class=\"brd_bottom bold\">".$rows["mark"]."</td>";
+                                    echo "<td class=\"brd_bottom bold\">".$rows["nameRegion"]."</td>";
+                                    echo "<td class=\"brd_bottom bold\"> г. ".$rows["cityName"]."</td>";
+                                    echo "<td class=\"brd_bottom\">".$rows["phone"]."</td>";
+                                    echo "<td class=\"brd_bottom\">".$rows["mail"]."</td>";
+                                    echo "<td class=\"brd_bottom\">".$rows["tarifR"]."</td>";
+                                    echo "<td class=\"brd_bottom\">".$rows["tarifChriz"]."</td>";
+                                    echo "<td class=\"brd_bottom\">".$rows["tarifT"]."</td>";
                                     echo "<td class=\"brd_bottom\">
-                                            <input type=\"checkbox\" name=\"activeClient[]\" value=\"".$rows[0]."\">
+                                            <input type=\"checkbox\" name=\"activeClient[]\" value=\"".$rows["personID"]."\">
                                         </td>";
                                     // echo "<td class=\"brd_bottom\"><form action=\"editCl.php\" method=\"get\">
                                     //         <input type=\"submit\" value=\"Редактировать!\">

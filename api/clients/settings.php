@@ -2,11 +2,14 @@
     include_once dirname(__FILE__, 2) . '/db.php';
     include_once dirname(__FILE__, 3). '/header.php';
 ?>
-<a href="#cityAdd">
-	Города клиентов
-</a>
-<form action="addCity.php" id="cityAdd" method="POST">
-	<label for="">Наименование города:</label>
-	<input type="text" name="cityName">
-	<input type="submit">
+<form action="addCity.php" class="settingsForm" id="cityAdd" method="POST">
+	<div>
+		<label for="">Наименование города:</label>
+		<input type="text" name="cityName">
+	</div>
+	<div>
+		<label for=""> Наименование региона:</label>
+		<input type="text" name="nameRegion">	
+	</div>
+	<input type="submit" value="Добавить">
 </form>
