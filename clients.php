@@ -65,6 +65,21 @@
     <label>Ф.И.О.<input type="text" name="client-n" required placeholder="Имя Клиентв полном формате"></label>
     <label>Телефон<input type="tel" name="phone" required placeholder="+7(  ) ___-__-__" pattern="+7[0-9]{3}-[0-9]{3}-[0-9]{2}-[0-9]{2}"></label>
     <label>
+        Регион
+        <select name="RegionID">
+            <?php
+                $city = "SELECT * FROM regions";
+                $getRegion = mysqli_query($connectDB, $city);
+                $listCity = mysqli_num_rows($getRegion);
+                for ($i=0; $i < $listCity; $i++) { 
+                    while($list = mysqli_fetch_row($getRegion)){
+                        echo '<option value = "'.$list[0].'">' . $list[1] .'</option>';
+                    }       
+                }
+            ?>
+        </select>
+    </label>
+    <label>
         Город
         <select name="cityName">
             <?php
